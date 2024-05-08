@@ -1,9 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://unexpiredbread.github.io'
+  site: 'https://unexpiredbread.github.io',
+  image: {
+    service: passthroughImageService(),
+  },
 });
