@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import heroImage from '../../public/hero_image.jpg';
+import logo from '../../public/logo.png';
+import youtube from '../../public/youtube.png';
+import spotify from '../../public/spotify.png';
+import instagram from '../../public/instagram.png';
+import applemusic from '../../public/applemusic.png';
+import website from '../../public/website.png';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="DVN">
+	<main>
+		<Image src={logo} alt="logo" class="h-24 xl:h-32 w-full object-contain absolute top-16 z-50 hero-logo" />
+
+		<div class="contents">
+			<Image src={heroImage} alt="hero icon" class="aspect-square h-screen object-cover hero-image" />
+			<div class="w-fill h-screen socials flex items-center cards">
+				<div class="flex flex-col gap-4">
+					<Card 
+						title="Youtube"
+						body="Come check out my youtube channel!"
+						href="https://www.youtube.com/channel/UCk8fLdXUHFArrwAQeUlQ7Uw/featured"
+						icon={youtube}
+					/>
+					<Card
+						title="Spotify"
+						body="Check out some of the music I post on Spotify!"
+						href="https://open.spotify.com/artist/5TrzQcHEXoyRlanCNFtVV1"
+						icon={spotify}
+					/>
+					<Card
+						title="Instagram"
+						body="Follow me on Instagram for updates!"
+						href="https://www.instagram.com/dvnmusik/"
+						icon={instagram}
+					/>
+					<Card
+						title="Apple Music"
+						body="Check out some of the music I post on Apple Music!"
+						href="https://music.apple.com/de/artist/dvn/1605216171"
+						icon={applemusic}
+					/>
+					<Card
+						title="Website"
+						body="Check out my website for more information!"
+						href="https://dvnmusik.de/"
+						icon={website}
+					/>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.contents {
+		display: grid;
+		grid-template-columns: auto 1fr;
+	}
+
+	.hero-image {
+		mask-image: linear-gradient(to right, black 0%, transparent 100%);
+		width: auto;
+	}
+
+	.cards {
+		justify-content: start;
+	}
+
+	@media (max-height: 800px) {
+		.hero-logo {
+			inset: 2rem;
+			width: 15rem;
+			height: auto;
+		}
+	}
+
+	@media (max-width: 2000px) {
+		.contents {
+			display: block;
+		}
+
+		.socials {
+			position: absolute;
+			inset: 0;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.hero-image {
+			mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+			width: 100vw;
+		}
+
+		.cards {
+			justify-content: center;
+		}
+	}
+</style>
