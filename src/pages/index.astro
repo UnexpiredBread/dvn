@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import heroImage from '../../public/hero_image.webp';
+import heroImage from '../../public/hero_image.jpg';
 import logo from '../../public/logo.png';
 import youtube from '../../public/youtube.png';
 import spotify from '../../public/spotify.png';
@@ -13,11 +13,12 @@ import { Image } from 'astro:assets';
 
 <Layout title="DVN">
 	<main>
-		<Image src={logo} alt="logo" class="h-24 xl:h-32 w-full object-contain absolute top-16 z-50 hero-logo" />
+		<Image src={logo} alt="logo" class="h-24 xl:h-32 w-full object-contain absolute top-16 z-50 hero-logo px-8" />
+		<p class="absolute z-50 left-8 top-8">© dvnmusik {new Date().getFullYear()}</p>
 
 		<div class="contents">
 			<Image src={heroImage} alt="hero icon" class="aspect-square h-screen object-cover hero-image" />
-			<div class="w-fill h-screen socials flex items-center cards">
+			<div class="w-fill h-screen socials flex items-center cards px-8">
 				<div class="flex flex-col gap-4">
 					<Card 
 						title="Youtube"
